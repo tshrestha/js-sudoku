@@ -121,10 +121,13 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 0 0.2rem rgba(134, 142, 150, 0.5);
 }
 
+.container {
+  max-width: 100vmin;
+}
+
 .grid-container {
   padding: 0;
   margin-top: 24px;
-  max-width: 100vmin;
 }
 
 .numbers-container,
@@ -208,4 +211,4 @@ h1, h2, h3, h4, h5, h6 {
 .number-btn {
   font-family: monospace;
 }
-/*# sourceMappingURL=main.476db6f1eaa4481cfee3.css.map*/
+/*# sourceMappingURL=main.0d6c627e27891ecce1e8.css.map*/
