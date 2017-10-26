@@ -29,7 +29,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['app']),
     new ExtractTextPlugin('main.[hash].css'),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
     new HtmlWebpackPlugin({template: 'src/index.html'})
   ],
   devServer: {

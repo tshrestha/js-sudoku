@@ -244,16 +244,9 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const level = {
-  easy: 28,
-  medium: 37,
-  hard: 45,
-  master: 65
-};
-
 export default {
-  getPuzzle: (difficulty = level.easy) => {
-    let solution = solve(randomPuzzle(81 - difficulty));
+  getPuzzle: () => {
+    let solution = solve(randomPuzzle());
 
     while (!solved(solution)) {
       solution = solve(randomPuzzle());

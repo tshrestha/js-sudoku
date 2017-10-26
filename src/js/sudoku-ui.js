@@ -95,5 +95,5 @@ let puzzle = sudoku.getPuzzle();
 let peers = sudoku.peers;
 let squares = renderGrid(peers);
 
-for (let [s, d] of puzzle)
+for (let [s, d] of puzzle.solution)
   squares.get(s.toLowerCase()).innerHTML = [...d][0];
