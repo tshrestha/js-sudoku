@@ -244,15 +244,24 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export default {
-  getPuzzle: () => {
-    let puzzle = solve(randomPuzzle());
+const level = {
+  easy: 28,
+  medium: 37,
+  hard: 45,
+  master: 65
+};
 
-    while (!solved(puzzle)) {
-      puzzle = solve(randomPuzzle());
+export default {
+  getPuzzle: (difficulty = level.easy) => {
+    let solution = solve(randomPuzzle(81 - difficulty));
+
+    while (!solved(solution)) {
+      solution = solve(randomPuzzle());
     }
 
-    return puzzle;
+    return {
+      solution: solution
+    };
   },
   peers: peers
 }

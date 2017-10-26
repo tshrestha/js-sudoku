@@ -202,6 +202,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+.edit-container {
+  margin-bottom: 24px;
+}
+
 .btn {
   font-family: monospace;
   margin-top: 8px;
