@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/js/sudoku-ui.js'),
@@ -26,6 +27,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['app']),
     new ExtractTextPlugin('main.[hash].css'),
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({template: 'src/index.html'})
