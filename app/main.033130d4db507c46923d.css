@@ -130,11 +130,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 24px;
 }
 
-.numbers-container,
-.undo-container {
-  margin-top: 24px;
-}
-
 .square {
   position: relative;
   display: inline-block;
@@ -202,13 +197,28 @@ h1, h2, h3, h4, h5, h6 {
   border-top: none;
 }
 
+.numbers-container,
+.edit-container {
+  padding: 0;
+}
+
 .btn {
-  font-size: 5vmin;
   font-family: monospace;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  color: rgba(0,0,0, 0.6);
+  background: transparent;
 }
 
 .number-btn {
-  font-family: monospace;
+  width: 9.5vmin;
+  padding: 0;
+  font-size: 9vmin;
 }
-/*# sourceMappingURL=main.0d6c627e27891ecce1e8.css.map*/
+
+.edit-button {
+  width: 24vmin;
+  font-size: 5vmin;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+/*# sourceMappingURL=main.033130d4db507c46923d.css.map*/
