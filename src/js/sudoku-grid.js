@@ -21,8 +21,9 @@ export default class SudokuGrid {
     }
   }
 
-  setSquareValue(value) {
+  setSquareValue(value, puzzle) {
     if (this.highlightedSquare) {
+      puzzle.set(this.highlightedSquare.id.toUpperCase(), new Set(value));
       this.highlightedSquare.innerHTML = value;
     }
   }

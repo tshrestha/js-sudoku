@@ -7,9 +7,13 @@ export default class Sudoku {
     this.puzzle = this.game.puzzle;
     this.solution = this.game.solution;
 
-    let grid = this.grid = new SudokuGrid();
-    grid.fillClues(this.puzzle);
+    this.grid = new SudokuGrid();
+    this.grid.fillClues(this.puzzle);
+    this.setInputEvents();
+  }
 
+  setInputEvents() {
+    let grid = this.grid;
     let squares = this.grid.squares;
 
     // Setup touch/click events for each square.
@@ -26,10 +30,24 @@ export default class Sudoku {
       let keycode = e.keyCode;
 
       if (keycode >= 49 && keycode <= 57) {
-        grid.setSquareValue(value);
+        grid.setSquareValue(value, this.puzzle);
+        if (this.solved()) Sudoku.displayMessage()
+
       } else if (keycode === 8) {
-        grid.setSquareValue('');
+        grid.setSquareValue('', this.puzzle);
       }
     }
+  }
+
+  solved() {
+    for (let [s, d] of this.solution) {
+      if ([...this.puzzle.get(s)][0] !== [...d][0]) return false;
+    }
+
+    return true;
+  }
+
+  static displayMessage() {
+    window.alert(`Congratulations! You solved the puzzle.`)
   }
 }
