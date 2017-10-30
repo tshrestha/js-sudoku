@@ -41,13 +41,15 @@ export default class SudokuGrid {
   }
 
   highlightPeers(square) {
-    if (this.highlightedPeers) {
-      this.highlightedPeers.forEach(p => {
-        if (p.id !== square) p.classList.remove('highlight');
-      });
-    }
+    if (!this.squares.get(square).classList.contains('clue')) {
+      if (this.highlightedPeers) {
+        this.highlightedPeers.forEach(p => {
+          if (p.id !== square) p.classList.remove('highlight');
+        });
+      }
 
-    this.highlightedPeers = this.peers.get(square);
-    this.highlightedPeers.forEach(p => p.classList.add('highlight'));
+      this.highlightedPeers = this.peers.get(square);
+      this.highlightedPeers.forEach(p => p.classList.add('highlight'));
+    }
   }
 }
