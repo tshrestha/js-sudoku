@@ -139,12 +139,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .focused-content {
-  background-color: #FFF59D;
-  box-shadow: 0 0 0 1pt rgba(0, 0, 0, 0.6)
+  background-color: #FFF59D !important;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.4)
 }
 
 .highlight {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.puzzle-clue {
+  color: #1976D2;
 }
 
 .square:nth-child(4n) {
@@ -199,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn {
   font-family: monospace;
   margin-top: 8px;
-  color: rgba(0,0,0, 0.6);
+  color: rgba(0, 0, 0, 0.6);
   background: transparent;
 }
 
@@ -215,4 +219,4 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLjc5YmQ3OWY2NjA5ZmFkMDY4YzI1LmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmEyMGIzMGFmZTI4ODdiOThlNTdiLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
