@@ -15,6 +15,13 @@ const digits = new Set(['1', '2', '3', '4', '5', '6', '7', '8', '9']);
 const cols = new Set(digits);
 const squares = cross(rows, cols);
 
+const level = {
+  easy: 28,
+  medium: 37,
+  hard: 45,
+  master: 65
+};
+
 const unitlist = [...cols].map(c => cross(rows, new Set(c)))
     .concat([...rows].map(r => cross(new Set(r), cols)))
     .concat((() => {
@@ -165,7 +172,7 @@ function some(seq, func) {
 
 /**
  * Fisher-Yates Shuffle
- * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ * See http://bit.ly/2gMXijX
  */
 function shuffle(seq) {
   let array = [...seq];
@@ -229,7 +236,8 @@ function randomPuzzle(n = 17) {
         .map(s => values.get(s));
 
     if (ds.length >= n && new Set(ds).size >= 8) {
-      return [...squares].map(s => values.get(s).size === 1 ? [...values.get(s)][0] : '0');
+      return [...squares]
+          .map(s => values.get(s).size === 1 ? [...values.get(s)][0] : '0');
     }
   }
 
@@ -244,16 +252,62 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function isUnique(original, test) {
+  for (let [s, d] of original) {
+    if ([...test.get(s)][0] !== [...d][0]) return false;
+  }
+
+  return true;
+}
+
+/**
+ * Iterate through the randomly shuffled squares.
+ * After removing each square from the solution
+ * solve it and test if it is the same as the original.
+ * If the solution doesn't match undo the removal and
+ * try another square.
+ */
+function createPuzzle(solution) {
+  let puzzle = [];
+  let indices = {};
+  let shuffled = shuffle(squares);
+
+  let result = new Map();
+  let hiddenSquares = new Map();
+
+  [...squares].forEach((s, i) => {
+    puzzle.push([...solution.get(s)][0]);
+    indices[s] = i;
+  });
+
+  for (let i = 0; i < shuffled.length; i++) {
+    let j = indices[shuffled[i]];
+    let v = puzzle[j];
+    puzzle[j] = '0';
+
+    if (!isUnique(solution, solve(puzzle))) {
+      puzzle[j] = v;
+      result.set(shuffled[i], v);
+    } else {
+      result.set(shuffled[i], '0');
+      hiddenSquares.set(shuffled[i], v);
+    }
+  }
+
+  return result;
+}
+
 export default {
-  getPuzzle: () => {
-    let solution = solve(randomPuzzle());
+  getPuzzle: (difficulty = level.easy) => {
+    let solution = solve(randomPuzzle(81 - difficulty));
 
     while (!solved(solution)) {
       solution = solve(randomPuzzle());
     }
 
     return {
-      solution: solution
+      solution: solution,
+      puzzle: createPuzzle(solution)
     };
   },
   peers: peers

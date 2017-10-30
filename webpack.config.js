@@ -36,5 +36,5 @@ module.exports = {
     port: 8000,
     contentBase: path.join(__dirname, 'app')
   },
-  devtool: 'source-map'
+  devtool: 'inline-source-map'
 };

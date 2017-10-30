@@ -50,6 +50,8 @@ let renderGrid = (peers) => {
   let onInput = e => {
     if (e.keyCode >= 49 && e.keyCode <= 57) {
       if (focusedSquare) focusedSquare.innerHTML = e.key;
+    } else if (e.keyCode === 8) {
+      if (focusedSquare) focusedSquare.innerHTML = '';
     }
   };
 
@@ -95,5 +97,5 @@ let puzzle = sudoku.getPuzzle();
 let peers = sudoku.peers;
 let squares = renderGrid(peers);
 
-for (let [s, d] of puzzle.solution)
-  squares.get(s.toLowerCase()).innerHTML = [...d][0];
+for (let [s, d] of puzzle.puzzle)
+  squares.get(s.toLowerCase()).innerHTML = [...d][0] === '0' ? '' : [...d][0];
