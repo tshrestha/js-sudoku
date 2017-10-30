@@ -83,14 +83,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary {
-  color: #fff;
   background-color: #868e96;
   border-color: #868e96;
 }
 
 .btn-secondary:hover {
-  color: #fff;
-  background-color: #727b84;
   border-color: #6c757d;
 }
 
@@ -105,8 +102,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary:not([disabled]):not(.disabled):active, .btn-secondary:not([disabled]):not(.disabled).active,
 .show > .btn-secondary.dropdown-toggle {
-  color: #fff;
-  background-color: #6c757d;
   border-color: #666e76;
   box-shadow: 0 0 0 0.2rem rgba(134, 142, 150, 0.5);
 }
@@ -219,4 +214,4 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLjk2MzUxNzE3MTIyY2YyY2MxZTFhLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLjA2M2M2Y2E0M2UyZGExY2QxOTFiLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
