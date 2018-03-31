@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "pub": "webpack && git add -A && git commit -m 'app update' && git push"
   }
 }
