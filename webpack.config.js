@@ -1,7 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = options => {
@@ -22,19 +21,18 @@ module.exports = options => {
         },
         {
           test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: 'css-loader'
-          })
+          use: [CssExtractPlugin.loader, 'css-loader']
         }
       ]
     },
     plugins: [
       new CleanWebpackPlugin(['app']),
-      new ExtractTextPlugin('main.[hash].css'),
-      new webpack.optimize.UglifyJsPlugin({sourceMap: env !== 'production'}),
+      new CssExtractPlugin({filename: 'main.[hash].css'}),
       new HtmlWebpackPlugin({ template: 'src/index.html' })
     ],
+    optimization: {
+      minimize: true
+    },
     devServer: {
       port: 8000,
       contentBase: path.join(__dirname, 'app')
