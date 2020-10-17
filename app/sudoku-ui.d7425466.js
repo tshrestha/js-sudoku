@@ -13,4 +13,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./sudoku-generator":"MCBW","./sudoku-grid":"G9tR"}],"dlZ3":[function(require,module,exports) {
 "use strict";require("../css/main.css");var e=u(require("./sudoku"));function u(e){return e&&e.__esModule?e:{default:e}}new e.default;
 },{"../css/main.css":"I7Ak","./sudoku":"Lo2i"}]},{},["dlZ3"], null)
-//# sourceMappingURL=app/sudoku-ui.d7425466.js.map
+//# sourceMappingURL=/sudoku-ui.d7425466.js.map
