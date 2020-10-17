@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --out-dir app",
+    "build": "parcel build src/index.html --out-dir app --public-url /",
     "pub": "npm run build && git add -A && git commit -m 'app update' && git push"
   },
   "dependencies": {}
